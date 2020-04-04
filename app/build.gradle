@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/gradle/dependencies.gradle"
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.jonathanstewart.androidTemplate"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        debug {
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':data')
+    implementation project(path: ':repository')
+
+    implementation dependenciesList.kotlin
+    implementation dependenciesList.appcompat
+    implementation dependenciesList.androidx_core
+    implementation dependenciesList.constraint_layout
+    implementation dependenciesList.navigation_fragment
+    implementation dependenciesList.navigation_ui
+    implementation dependenciesList.lifecycle_ext
+    implementation dependenciesList.lifecycle_viewmodel
+    implementation dependenciesList.lifecycle_livedata
+    implementation dependenciesList.recycler_view
+    implementation dependenciesList.card_view
+    implementation dependenciesList.material
+    implementation dependenciesList.glide
+    //Koin
+    implementation dependenciesList.koinScope
+    implementation dependenciesList.koinViewModel
+    androidTestImplementation dependenciesList.koinTest
+
+    //Timber
+    implementation dependenciesList.timber
+
+    testImplementation dependenciesList.junit
+    testImplementation dependenciesList.mockk
+    testImplementation dependenciesList.coreTesting
+    testImplementation dependenciesList.coRoutinesTest
+
+    androidTestImplementation dependenciesList.androidx_test_runner
+    androidTestImplementation dependenciesList.espresso_core
+    androidTestImplementation dependenciesList.espresso_contrib
+    androidTestImplementation dependenciesList.espresso_intents
+    androidTestImplementation dependenciesList.testRunner
+    androidTestImplementation dependenciesList.testRules
+    androidTestImplementation dependenciesList.uiAutomater
+    androidTestImplementation dependenciesList.mockkAndroid
+    androidTestImplementation dependenciesList.mockk
+}

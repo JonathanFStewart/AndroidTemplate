@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AndroidTemplate</string>
+    <string name="title_search">Search</string>
+    <string name="search_hint">Search…</string>
+    <string name="title_about">About</string>
+    <string name="about_title">Git Hub Search Demo</string>
+    <string name="about_description">This app was written as a template for future projects and uses MVVM
+        architecture while taking advantage of the latest in Android development trends, and libraries. Those
+        libraries are listed below:
+    </string>
+    <string name="sample_repo_description">Test Repo Description that just goes on and on forever and never
+        seems to stop so that it runs off the edge of the text view and wont stop going.
+    </string>
+    <string name="sample_repo_name">Test Repo Name</string>
+    <string name="sample_repo_stars">9.99k</string>
+    <string name="sample_repo_language">Kotlin</string>
+    <string name="not_available">N/A</string>
+
+
+</resources>

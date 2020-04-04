@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/gradle/dependencies.gradle"
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':data')
+    api project(path: ':network')
+    api project(path: ':persistence')
+
+    implementation dependenciesList.appcompat
+    implementation dependenciesList.androidx_core
+    implementation dependenciesList.kotlin
+
+    //Koin
+    implementation dependenciesList.koinScope
+    implementation dependenciesList.koinViewModel
+
+    //Timber
+    implementation dependenciesList.timber
+
+
+    testImplementation dependenciesList.junit
+    testImplementation dependenciesList.mockk
+    testImplementation dependenciesList.coreTesting
+    testImplementation dependenciesList.coRoutinesTest
+    testImplementation dependenciesList.coRoutinesCore
+
+    androidTestImplementation dependenciesList.androidx_test_runner
+    androidTestImplementation dependenciesList.espresso_core
+
+}
