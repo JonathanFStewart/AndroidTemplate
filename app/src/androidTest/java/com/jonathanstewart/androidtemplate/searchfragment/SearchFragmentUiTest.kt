@@ -156,12 +156,6 @@ class SearchBarFragmentUiTest : FragmentTest<SearchFragment>(SearchFragment::cla
             onView(withId(R.id.exit_button)).perform(click())
         }
     }
-
-    @Test
-    fun newQueryTriggersSearch() {
-        latestQuery.postValue("Test")
-        verify { testSearchViewModel.searchForRepos("Test") }
-    }
     
     @Test
     fun loadingLiveDataShowsSpinner() {

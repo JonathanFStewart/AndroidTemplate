@@ -1,4 +1,4 @@
-package com.jonathanstewart.androidtemplate
+package com.jonathanstewart.network
 
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.assertEquals
@@ -14,6 +14,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.jonathanstewart.androidTemplate", appContext.packageName)
+        assertEquals("com.jonathanstewart.network.test", appContext.packageName)
     }
 }
